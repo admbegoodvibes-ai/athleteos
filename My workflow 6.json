@@ -1,0 +1,130 @@
+{
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "40b74edc-2b9d-4461-81ee-3a74571c01e0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -592,
+        -192
+      ],
+      "id": "b5049f82-d8cc-463e-b8a5-cb21e611e891",
+      "name": "Webhook",
+      "webhookId": "40b74edc-2b9d-4461-81ee-3a74571c01e0"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-flash-lite-latest",
+          "mode": "list",
+          "cachedResultName": "models/gemini-flash-lite-latest"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "Você é um analista de desempenho esportivo e psicólogo do esporte focado em categorias de base.\nUm atleta acabou de registrar a seguinte partida:\n\nMinutos jogados: 90\n\nNota de autoavaliação (1 a 10):6\n\nObservação do atleta:joguei fiquei cansadio\n\nBaseado nisso, crie um relatório de feedback em duas partes curtas:\n\nAnálise Técnica: Um comentário sobre o desempenho e a carga física (minutagem).\n\nFeedback Comportamental: Uma mensagem encorajadora e focada na mentalidade de evolução, referenciando o que ele sentiu no jogo. Seja direto, evite clichês e use um tom inspirador."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        -368,
+        -192
+      ],
+      "id": "f7b71c8c-83e4-4e2e-bcc3-de56360f524e",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "CCd0djeqQMGF0Fae",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "matches",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "599be92d-2125-49d2-b72b-66b0d8450eac"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "notes",
+              "fieldValue": "Aqui está o seu relatório de feedback, estruturado para impulsionar o desenvolvimento deste atleta:\\n\\n---\\n\\n### **1. Análise Técnica**\\n**Carga e Desempenho:** Completar 90 minutos exige uma demanda fisiológica elevada, e o cansaço relatado é a resposta natural de um organismo submetido a uma partida inteira. Jogar a partida toda é excelente para o seu volume de jogo e ritmo competitivo, mas a nota 6 mostra que a sua execução técnica e tomada de decisão caíram à medida que a fadiga acumulou. No futebol de base, suportar os 90 minutos não basta; é preciso manter a intensidade e o foco tático do pr..."
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -48,
+        -176
+      ],
+      "id": "f8f0afb9-a933-4d34-a93d-3ff7fab8689b",
+      "name": "Update a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "dwt3XEG06pEbrE2r",
+          "name": "Supabase account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Update a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "cb6bbb2b-1ca7-4d8d-b8dd-43058879dc65",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "30169ceac1b8d2b50488887d244a0bcfa4f4d205cd35cb2e59c5e1950366cb5a"
+  },
+  "nodeGroups": [],
+  "id": "0k4DdKpNCc3zXUuQ",
+  "tags": []
+}

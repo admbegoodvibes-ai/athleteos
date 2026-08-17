@@ -1,0 +1,31 @@
+{
+  "name": "athleteos",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
+    "db:start": "npx supabase start",
+    "db:stop": "npx supabase stop",
+    "db:types": "npx supabase gen types typescript --local > packages/database/src/types.ts",
+    "db:reset": "npx supabase db reset",
+    "db:seed": "npx supabase db reset --seed-only",
+    "security:audit": "pnpm audit --audit-level=high",
+    "setup": "pnpm install && echo Setup complete! Run pnpm dev to start."
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "typescript": "^5.5.0",
+    "@types/node": "^20.14.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

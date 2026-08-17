@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Futebol - Scout & Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="login-container active">
+        <div class="login-box">
+            <div class="logo logo-center">
+                <h1>THOMAS<span>FUT</span></h1>
+                <p>Selecione como deseja acessar a plataforma</p>
+            </div>
+            
+            <div class="role-cards">
+                <button class="role-card" onclick="fazerLogin('olheiro')">
+                    <div class="role-icon">🕵️</div>
+                    <h3>Sou Olheiro</h3>
+                    <p>Buscar talentos e ver vitrine</p>
+                </button>
+                
+                <button class="role-card" onclick="fazerLogin('escolinha')">
+                    <div class="role-icon">🏫</div>
+                    <h3>Sou Escolinha</h3>
+                    <p>Cadastrar e gerenciar meus alunos</p>
+                </button>
+
+                <button class="role-card" onclick="fazerLogin('atleta')">
+                    <div class="role-icon">⚽</div>
+                    <h3>Sou Atleta</h3>
+                    <p>Editar meu perfil e vídeos</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div id="app-wrapper" class="app-container hidden">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>THOMAS<span>FUT</span></h1>
+            </div>
+            <nav id="sidebar-nav">
+                <button class="nav-btn" id="nav-dashboard" data-target="dashboard-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Vitrine Olheiro
+                </button>
+                <button class="nav-btn" id="nav-meus-alunos" data-target="meus-alunos-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Meus Alunos
+                </button>
+                <button class="nav-btn" id="nav-cadastro" data-target="cadastro-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Cadastrar Aluno
+                </button>
+                <button class="nav-btn" id="nav-financeiro" data-target="financeiro-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Gestão / Financeiro
+                </button>
+                <button class="nav-btn" id="nav-meu-perfil" data-target="perfil-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Meu Perfil
+                </button>
+                <button class="nav-btn" id="nav-premium" data-target="checkout-section">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Seja Premium
+                </button>
+            </nav>
+            
+            <div style="margin-top: auto;">
+                <button class="nav-btn" style="color: #FF2A5F;" onclick="fazerLogout()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                    Sair
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- SCOUT DASHBOARD SECTION -->
+            <section id="dashboard-section" class="content-section">
+                <header class="section-header">
+                    <h2>Vitrine de Talentos</h2>
+                    <p>Busque e filtre atletas da base</p>
+                </header>
+
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label>Categoria (SUB)</label>
+                        <select id="filter-categoria">
+                            <option value="">Todas</option>
+                            <option value="Sub-11">Sub-11</option>
+                            <option value="Sub-13">Sub-13</option>
+                            <option value="Sub-15">Sub-15</option>
+                            <option value="Sub-17">Sub-17</option>
+                            <option value="Sub-20">Sub-20</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Posição</label>
+                        <select id="filter-posicao">
+                            <option value="">Todas</option>
+                            <option value="Goleiro">Goleiro</option>
+                            <option value="Zagueiro">Zagueiro</option>
+                            <option value="Lateral">Lateral</option>
+                            <option value="Meio-Campo">Meio-Campo</option>
+                            <option value="Atacante">Atacante</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Região (Estado)</label>
+                        <select id="filter-regiao">
+                            <option value="">Todas</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="PR">Paraná</option>
+                        </select>
+                    </div>
+                    <button id="btn-search" class="btn-primary">Buscar Atletas</button>
+                </div>
+
+                <div class="results-grid" id="athletes-grid">
+                    <!-- Cards de atletas serão injetados aqui via JS -->
+                </div>
+            </section>
+
+            <!-- MEUS ALUNOS SECTION (Escolinha) -->
+            <section id="meus-alunos-section" class="content-section">
+                <header class="section-header">
+                    <h2>Meus Alunos (Escolinha)</h2>
+                    <p>Gerencie os atletas matriculados na sua instituição</p>
+                </header>
+                
+                <div class="results-grid" id="meus-alunos-grid">
+                    <!-- Cards de alunos injetados via JS -->
+                </div>
+            </section>
+
+            <!-- CADASTRO SECTION (Escolinha) -->
+            <section id="cadastro-section" class="content-section">
+                <header class="section-header">
+                    <h2>Novo Cadastro de Aluno</h2>
+                    <p>Preencha os dados. A categoria SUB será calculada automaticamente.</p>
+                </header>
+
+                <form id="cadastro-form" class="modern-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome Completo</label>
+                            <input type="text" id="cad-nome" required placeholder="Ex: Endrick Felipe">
+                        </div>
+                        <div class="form-group">
+                            <label>Foto de Perfil (Opcional)</label>
+                            <input type="file" id="cad-foto" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Data de Nascimento</label>
+                            <input type="date" id="cad-data" required>
+                        </div>
+                        <div class="form-group category-display">
+                            <label>Categoria (Automático)</label>
+                            <div class="badge-sub" id="cad-categoria-badge">Preencha a data</div>
+                            <input type="hidden" id="cad-categoria-hidden">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Posição Principal</label>
+                            <select id="cad-posicao" required>
+                                <option value="">Selecione...</option>
+                                <option value="Goleiro">Goleiro</option>
+                                <option value="Zagueiro">Zagueiro</option>
+                                <option value="Lateral">Lateral</option>
+                                <option value="Meio-Campo">Meio-Campo</option>
+                                <option value="Atacante">Atacante</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pé Dominante</label>
+                            <select id="cad-pe" required>
+                                <option value="">Selecione...</option>
+                                <option value="Destro">Destro</option>
+                                <option value="Canhoto">Canhoto</option>
+                                <option value="Ambidestro">Ambidestro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Região (Estado)</label>
+                            <select id="cad-regiao" required>
+                                <option value="">Selecione...</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="PR">Paraná</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Link de Vídeo (Opcional)</label>
+                            <input type="url" id="cad-video" placeholder="https://youtube.com/...">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Salvar Aluno</button>
+                    </div>
+                </form>
+                
+                <div id="feedback-msg" class="feedback-msg hidden">
+                    Aluno cadastrado com sucesso!
+                </div>
+            </section>
+
+            <!-- PERFIL DO ATLETA SECTION -->
+            <section id="perfil-section" class="content-section">
+                <div class="profile-header">
+                    <button class="btn-back hidden" id="btn-back-dashboard">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Voltar para a Vitrine
+                    </button>
+                    <button class="btn-primary hidden" id="btn-edit-profile" style="float: right;">
+                        ✏️ Editar Perfil
+                    </button>
+                </div>
+                
+                <div class="profile-container">
+                    <div class="profile-left">
+                        <div class="profile-main-info" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                            <img src="https://ui-avatars.com/api/?name=Atleta&background=00FF88&color=0B0E14" alt="Foto do Atleta" class="profile-avatar" id="profile-img">
+                            <div>
+                                <h2 id="profile-name">Nome do Atleta</h2>
+                                <div class="badges-row">
+                                    <span class="badge" id="profile-cat">Sub-15</span>
+                                    <span class="badge position" id="profile-pos">Atacante</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-container">
+                            <div id="profile-video-placeholder" class="video-placeholder">
+                                <p>Nenhum vídeo disponível</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-right">
+                        <h3>Estatísticas Físicas</h3>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-label">Altura</span>
+                                <span class="stat-value" id="profile-height">1.75m</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Peso</span>
+                                <span class="stat-value" id="profile-weight">68kg</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Pé Dominante</span>
+                                <span class="stat-value" id="profile-foot">Destro</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Idade</span>
+                                <span class="stat-value" id="profile-age">15 anos</span>
+                            </div>
+                        </div>
+
+                        <div class="bio-section">
+                            <h3>Sobre / Região</h3>
+                            <p id="profile-region">📍 São Paulo, SP</p>
+                        </div>
+                        
+                        <button class="btn-primary w-100 mt-4" id="btn-contact-scout">Entrar em Contato</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDITAR PERFIL SECTION (Atleta) -->
+            <section id="edit-profile-section" class="content-section">
+                <header class="section-header">
+                    <h2>Editar Meu Perfil</h2>
+                    <p>Mantenha seus dados físicos e vídeos atualizados para os olheiros.</p>
+                </header>
+
+                <form id="edit-profile-form" class="modern-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Altura (ex: 1.75m)</label>
+                            <input type="text" id="edit-altura" placeholder="1.75m">
+                        </div>
+                        <div class="form-group">
+                            <label>Peso (ex: 68kg)</label>
+                            <input type="text" id="edit-peso" placeholder="68kg">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Pé Dominante</label>
+                            <select id="edit-pe" required>
+                                <option value="Destro">Destro</option>
+                                <option value="Canhoto">Canhoto</option>
+                                <option value="Ambidestro">Ambidestro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Região (Estado)</label>
+                            <select id="edit-regiao" required>
+                                <option value="SP">São Paulo</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="PR">Paraná</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Link do Seu Melhor Vídeo (YouTube)</label>
+                            <input type="url" id="edit-video" placeholder="https://youtube.com/...">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Alterar Foto de Perfil</label>
+                            <input type="file" id="edit-foto" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-back" id="btn-cancel-edit" style="margin-right: auto; padding: 12px 24px;">Cancelar</button>
+                        <button type="submit" class="btn-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- FINANCEIRO SECTION (Escolinha) -->
+            <section id="financeiro-section" class="content-section">
+                <header class="section-header">
+                    <h2>Gestão e Pagamentos</h2>
+                    <p>Controle as mensalidades da sua Escolinha de Futebol</p>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-box" style="border-color: var(--primary);">
+                        <span class="stat-label">Mensalidades Recebidas</span>
+                        <span class="stat-value" style="color: var(--primary);">Em dia</span>
+                    </div>
+                    <div class="stat-box" style="border-color: #FF2A5F;">
+                        <span class="stat-label">Inadimplência</span>
+                        <span class="stat-value" style="color: #FF2A5F;">Pendentes</span>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="finance-table">
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th>Vencimento</th>
+                                <th>Status da Mensalidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-table-body">
+                            <!-- Injetado via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- CHECKOUT / PREMIUM SECTION (Atleta) -->
+            <section id="checkout-section" class="content-section">
+                <header class="section-header">
+                    <h2>Seja Premium na Vitrine</h2>
+                    <p>Ganhe destaque nas buscas dos olheiros e adicione vídeos ilimitados.</p>
+                </header>
+
+                <div class="plans-container">
+                    <div class="plan-card">
+                        <h3>Plano Básico</h3>
+                        <p class="plan-price">Gratuito</p>
+                        <ul class="plan-features">
+                            <li>✔️ 1 Vídeo no Portfólio</li>
+                            <li>✔️ Perfil Simples</li>
+                            <li>❌ Sem Destaque nas Buscas</li>
+                        </ul>
+                        <button class="btn-secondary" disabled>Seu Plano Atual</button>
+                    </div>
+
+                    <div class="plan-card highlight">
+                        <div class="badge-premium">Recomendado</div>
+                        <h3>Plano Premium</h3>
+                        <p class="plan-price">Consulte Condições</p>
+                        <ul class="plan-features">
+                            <li>⭐ Apareça em 1º nas Buscas</li>
+                            <li>⭐ Vídeos Ilimitados no Perfil</li>
+                            <li>⭐ Notificação quando o Olheiro ver seu vídeo</li>
+                        </ul>
+                        <button class="btn-primary w-100" onclick="alert('Funcionalidade simulada: Redirecionaria para o Pagamento (Mercado Pago / Stripe).')">Fazer Upgrade Agora</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
