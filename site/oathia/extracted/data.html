@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OathIA Data | Automação e Governança</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background-color: var(--color-bg-light);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .page-content {
+            padding: 80px 0;
+            max-width: 800px;
+        }
+        .page-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .page-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text-main);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="index.html">OathIA</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#solucoes">Soluções Corporativas</a></li>
+                <li><a href="#contato" class="btn-primary-small">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>OathIA Data: Automação e Governança</h1>
+            <p style="font-size: 1.25rem; max-width: 700px; margin-top: 16px;">Extração, normalização e auditoria de sistemas legados. Bases estruturadas para precisão em tomadas de decisões complexas.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="container page-content">
+        <h2>O Fim do Caos Operacional</h2>
+        <p>Empresas de médio e grande porte acumulam dados ao longo de anos em sistemas fragmentados, planilhas descentralizadas (Excel) e ERPs desatualizados. A falta de integração transforma a inteligência de negócios (Business Intelligence) em um esforço manual, lento e altamente suscetível a erros humanos.</p>
+        
+        <h2>Automação de Extração e Estruturação</h2>
+        <p>A <strong>OathIA Data</strong> desenvolve scripts proprietários de automação e Web Scraping (extração de dados web) para consolidar informações. Atuamos como a ponte estrutural entre os seus sistemas legados obsoletos e os painéis de BI modernos, garantindo que o fluxo de dados seja contínuo, auditável e sem intervenção manual diária.</p>
+        <p>Nossa inteligência artificial não apenas copia informações, ela valida cruzamentos. Identificamos inconsistências em tempo real, alertando a diretoria antes que uma decisão seja tomada com base em relatórios maquiados ou desatualizados.</p>
+
+        <h2>Governança e Integridade</h2>
+        <p>Ao implementar a OathIA Data, a sua empresa estabelece um nível de governança corporativa exigido pelas grandes auditorias do mercado. Todo dado processado possui rastreabilidade de origem (onde foi gerado) e controle de versão, garantindo a integridade absoluta da informação que chega à mesa dos decisores.</p>
+    </main>
+
+    <!-- Contato / Footer -->
+    <footer id="contato" class="footer">
+        <div class="container footer-container">
+            <div class="footer-main">
+                <div class="footer-cta">
+                    <h2>Estruture sua tomada de decisão.</h2>
+                    <p>Fale com nossos especialistas para entender como podemos automatizar a extração e a governança dos dados da sua empresa.</p>
+                </div>
+                <div class="footer-form-wrapper">
+                    <form id="contact-form" class="form-corporate" name="contact" method="POST" data-netlify="true">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail Corporativo</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">Agendar Consultoria de Dados</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="logo logo-footer">OathIA</div>
+                <p class="copyright">&copy; 2026 OathIA. Governança e Estruturação de Dados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

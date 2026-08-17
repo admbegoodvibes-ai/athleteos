@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Corridia | OathIA Ops</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background-color: var(--color-bg-light);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .page-content {
+            padding: 80px 0;
+            max-width: 800px;
+        }
+        .page-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .page-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text-main);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="index.html">OathIA</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#solucoes">Soluções Corporativas</a></li>
+                <li><a href="#contato" class="btn-primary-small">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Plataforma Corridia (OathIA Ops)</h1>
+            <p style="font-size: 1.25rem; max-width: 700px; margin-top: 16px;">Ecossistema logístico proprietário. Auditoria de rotas, rastreamento integrado e controle rigoroso de SLAs físicos.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="container page-content">
+        <h2>Inteligência Logística de Ponta a Ponta</h2>
+        <p>A logística no Brasil é um dos maiores gargalos de eficiência corporativa. A dependência de múltiplos fornecedores, transportadoras regionais e sistemas de rastreamento incompatíveis (TMS) gera um "ponto cego" na última milha (last mile). A <strong>Plataforma Corridia</strong> foi desenvolvida pela OathIA para iluminar esse gargalo.</p>
+        
+        <h2>Auditoria de Entregabilidade e SLA</h2>
+        <p>A Corridia funciona como uma camada de inteligência acima das transportadoras tradicionais. Ela consolida dados físicos e sistêmicos, documentando cada etapa da movimentação da carga. O objetivo não é apenas rastrear o pacote, mas auditar os provedores logísticos para garantir que os Acordos de Nível de Serviço (SLA) sejam cumpridos estritamente.</p>
+        <p>Com painéis de controle integrados, gestores de supply chain podem monitorar desvios de rota, retenções fiscais e falhas de entrega de maneira preditiva, não reativa.</p>
+
+        <h2>Integração Omnichannel (Físico ao Digital)</h2>
+        <p>A inteligência da OathIA aplicada à Plataforma Corridia garante que os dados do mundo físico se integrem perfeitamente aos ERPs corporativos. Da doca de expedição à assinatura do cliente, criamos uma trilha de auditoria digital inquebrável, reduzindo perdas e mitigando passivos trabalhistas e operacionais associados ao transporte rodoviário.</p>
+    </main>
+
+    <!-- Contato / Footer -->
+    <footer id="contato" class="footer">
+        <div class="container footer-container">
+            <div class="footer-main">
+                <div class="footer-cta">
+                    <h2>Audite a sua operação logística.</h2>
+                    <p>Entre em contato para agendar uma demonstração da Plataforma Corridia aplicada aos desafios do seu Supply Chain.</p>
+                </div>
+                <div class="footer-form-wrapper">
+                    <form id="contact-form" class="form-corporate" name="contact" method="POST" data-netlify="true">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail Corporativo</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">Agendar Demonstração Corridia</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="logo logo-footer">OathIA</div>
+                <p class="copyright">&copy; 2026 OathIA. Governança e Estruturação de Dados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias | OathIA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            padding: 120px 0 60px;
+            background-color: var(--color-bg-light);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .page-content {
+            padding: 80px 0;
+            max-width: 800px;
+        }
+        .page-content h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .page-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--color-text-main);
+        }
+        .date {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo"><a href="index.html">OathIA</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#noticias">Últimas Atualizações</a></li>
+                <li><a href="#contato" class="btn-primary-small">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <span class="date">20 de Julho de 2026 | Comunicado Oficial</span>
+            <h1>OathIA apresenta protocolo definitivo de auditoria em conformidade com as diretrizes da LGPD</h1>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="container page-content">
+        <p>A <strong>OathIA</strong> anunciou hoje o lançamento de seu novo protocolo de auditoria e higienização de bases de dados, marcando um avanço significativo na segurança jurídica para o mercado B2B brasileiro.</p>
+        
+        <h2>O Fim da Zona Cinzenta</h2>
+        <p>Com as recentes atualizações nas interpretações da Autoridade Nacional de Proteção de Dados (ANPD), as empresas que operam na captação e prospecção de clientes B2B (Business-to-Business) precisam de garantias além do simples "legítimo interesse". O novo protocolo desenvolvido pelos engenheiros da OathIA introduz uma dupla checagem rigorosa.</p>
+        <p>A primeira camada envolve algoritmos proprietários de validação cruzada que removem contatos obsoletos, inativos ou flagrados em vazamentos públicos. A segunda camada é estritamente documental, gerando um registro (hash) imutável de onde e como o dado foi validado, criando uma trilha de auditoria à prova de contestações jurídicas.</p>
+
+        <h2>Integração ao Ecosistema OathIA Leads</h2>
+        <p>Este protocolo já está integrado como padrão (default) em todas as entregas do serviço <strong>OathIA Leads</strong>. Diretores de receita (CROs) e chefes de vendas (CSOs) não precisam mais se preocupar com os riscos associados ao enriquecimento de bases frias, pois a inteligência artificial embarcada garante que as listas sejam as mais limpas e legais do mercado.</p>
+        
+        <p><em>Para mais informações técnicas sobre a implementação deste protocolo na sua empresa, entre em contato através do nosso canal corporativo.</em></p>
+    </main>
+
+    <!-- Contato / Footer -->
+    <footer id="contato" class="footer">
+        <div class="container footer-container">
+            <div class="footer-main">
+                <div class="footer-cta">
+                    <h2>Estruture sua operação com segurança.</h2>
+                    <p>Contate nossa equipe para discutir projetos de estruturação de dados, adequação jurídica e auditoria sistêmica.</p>
+                </div>
+                <div class="footer-form-wrapper">
+                    <form id="contact-form" class="form-corporate" name="contact" method="POST" data-netlify="true">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail Corporativo</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit" class="btn-primary btn-block">Solicitar Contato Comercial</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="logo logo-footer">OathIA</div>
+                <p class="copyright">&copy; 2026 OathIA. Governança e Estruturação de Dados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+/* 
+   OathIA - Estilo Corporativo "Big Tech" (Referência IBM)
+   Foco em design plano, bordas retas, sem sombras, altíssima seriedade.
+*/
+
+:root {
+    /* Cores Corporativas */
+    --color-primary: #0f62fe; /* Azul destaque */
+    --color-primary-hover: #0353e9;
+    --color-secondary: #0a1930; /* Azul escuro corporativo para títulos */
+    
+    --color-bg-white: #ffffff;
+    --color-bg-light: #f4f4f4; /* Fundo cinza claro clássico */
+    --color-bg-dark: #0a1930; /* Fundo escuro azulado para o rodapé */
+    
+    --color-border: #e0e0e0; /* Borda fina cinza */
+    
+    --color-text-main: #0b1f40; /* Azul escuro (quase preto) para os textos da página */
+    --color-text-muted: #3a4b66; /* Azul acinzentado para textos de apoio */
+    --color-text-light: #ffffff;
+    
+    /* Tipografia */
+    --font-main: 'Inter', sans-serif;
+    
+    /* Espaçamento e Estrutura */
+    --container-width: 1200px; /* Um pouco mais largo */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 400; /* Reduzindo o peso para ficar mais sofisticado/sério */
+    line-height: 1.2;
+    color: var(--color-text-main);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 300; /* Estilo IBM Hero */
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+p {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+/* Botões */
+.btn-primary, .btn-secondary, .btn-primary-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 0; /* SEM BORDAS ARREDONDADAS */
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.btn-primary-small {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    font-size: 0.875rem;
+}
+
+.btn-primary-small:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 64px; /* Navbar mais baixa, corporativa */
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo em Texto */
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000000; /* Todo em preto como solicitado */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a:not(.btn-primary-small) {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text-main);
+}
+
+.nav-links a:not(.btn-primary-small):hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    padding: 160px 0 100px;
+    background-color: var(--color-bg-white);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero p {
+    font-size: 1.125rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+/* Soluções Section - O Estilo IBM */
+.solutions-section {
+    padding: 80px 0 120px;
+    background-color: var(--color-bg-light); /* Fundo cinza claro ajuda a destacar os cards brancos */
+}
+
+.section-header {
+    margin-bottom: 40px;
+}
+
+.section-header p {
+    max-width: 600px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px; /* Espaçamento menor, grade rígida */
+}
+
+/* Estilo do Card idêntico à Referência 2 */
+.card {
+    background-color: var(--color-bg-white);
+    padding: 24px;
+    border-radius: 0; /* Reto */
+    box-shadow: none; /* Sem sombra! */
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    min-height: 280px; /* Formato retangular alto */
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--color-primary);
+    /* IBM as vezes usa uma sombra MUITO sutil apenas no hover, ou apenas borda azul. Vamos de borda e sombra sutil */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 400; /* Título leve */
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* Parte de baixo do card (Icone esquerda, Seta direita) */
+.card-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-icon svg {
+    stroke-width: 1; /* Linha extremamente fina */
+    stroke: var(--color-text-main);
+}
+
+.card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.card-arrow svg {
+    stroke: var(--color-primary);
+    stroke-width: 1.5;
+}
+
+.card:hover .card-arrow {
+    transform: translateX(4px); /* Seta move para direita no hover */
+}
+
+/* News Section (Últimas Atualizações) */
+.news-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-white);
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: 1fr 360px; /* Layout assimétrico: Imagem na esquerda, lista na direita */
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.news-image {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+}
+
+.news-header {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.news-item {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+.news-item a {
+    display: block;
+    text-decoration: none;
+}
+
+.news-item h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    transition: color 0.2s ease;
+}
+
+.news-item a:hover h3 {
+    color: var(--color-primary-hover);
+}
+
+.news-arrow {
+    stroke: var(--color-primary);
+    stroke-width: 1.5;
+    transition: transform 0.2s ease;
+}
+
+.news-item a:hover .news-arrow {
+    transform: translateX(4px);
+}
+
+.news-pagination {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.news-pagination span {
+    font-size: 1rem;
+    color: var(--color-text-main);
+    cursor: pointer;
+    padding-bottom: 4px;
+}
+
+.news-pagination .page-active {
+    font-weight: 600;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-white);
+    border-top: 1px solid var(--color-border);
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about-text p {
+    margin-bottom: 24px;
+}
+
+.slogan-block {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-main);
+    border-left: 2px solid var(--color-primary); /* Borda fina */
+    padding-left: 24px;
+    margin-top: 40px;
+}
+
+/* Footer / Contato */
+.footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    padding: 80px 0 40px;
+}
+
+.footer h2 {
+    color: var(--color-text-light);
+}
+
+.footer p {
+    color: #a8a8a8;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 80px;
+}
+
+.footer-cta h2 {
+    margin-bottom: 16px;
+}
+
+.form-corporate {
+    background-color: #262626; /* Fundo limpo no dark mode */
+    padding: 32px;
+    border: 1px solid #393939; /* Borda reta */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #f4f4f4;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: transparent;
+    border: 1px solid #525252;
+    color: var(--color-text-light);
+    border-radius: 0; /* Sem borda arredondada no input também */
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #393939;
+    padding-top: 32px;
+}
+
+.logo-footer {
+    color: var(--color-text-light);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.75rem; }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
