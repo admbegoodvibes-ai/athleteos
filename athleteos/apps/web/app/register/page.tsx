@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
+import { Button } from '@athleteos/ui/components/button';
 import Link from 'next/link';
 
 const STEPS = [
