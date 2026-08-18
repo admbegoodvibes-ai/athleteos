@@ -99,7 +99,7 @@ export default async function PublicProfilePage({ params }: { params: { slug: st
                 {athlete.position && (
                   <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/50">
                     <Activity className="w-4 h-4 text-emerald-400" />
-                    {posProfile?.position_profiles?.name || positionLabels[athlete.position] || athlete.position}
+                    {(posProfile?.position_profiles as any)?.name || positionLabels[athlete.position] || athlete.position}
                     {posProfile?.position_roles && (
                       <span className="text-slate-500 ml-1 font-normal">
                         ({(posProfile.position_roles as any).name})
